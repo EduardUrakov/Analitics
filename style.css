@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     text-decoration: none;
+    box-sizing: border-box;
 }
 
 body {
@@ -37,9 +38,14 @@ button:hover,
     box-shadow: 0px 0px 12px rgba(241, 75, 205, 0.5);
 }
 
+.top {
+    position: relative;
+    overflow: hidden;
+}
+
 .main__img {
     width: 100%;
-    min-width: 1600px;
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
@@ -56,9 +62,9 @@ button:hover,
 }
 
 header {
-    margin-top: 54px;
+    padding-top: 54px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     font-size: 16px;
     font-family: Roboto-Regular;
@@ -66,6 +72,12 @@ header {
 
 a {
     color: #8794BA;
+}
+
+.left__header {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
 }
 
 .header__logo {
@@ -77,7 +89,6 @@ a {
 .header__menu {
     display: flex;
     align-items: center;
-    margin-left: 82px;
     color: #8794BA;
     font-size: 16px;
     gap: 36px;
@@ -86,7 +97,6 @@ a {
 .header__sign {
     display: flex;
     align-items: center;
-    margin-left: 314px;
     gap: 40px;
     font-size: 16px;
 }
@@ -113,16 +123,16 @@ a {
 .content {
     display: flex;
     margin-top: 64px;
-    margin-bottom: 92px;
-    padding-left: calc(50% - 590px);
-    padding-right: calc(50% - 800px);
     gap: 75px;
+    padding-bottom: 254px;
 }
 
 .left__content {
     display: flex;
     flex-direction: column;
     padding-top: 78px;
+    width: 50%;
+    max-width: 550px;
 }
 
 .main__screen__small {
@@ -159,6 +169,11 @@ a {
     color: #FFFFFF;
 }
 
+.right__content {
+    display: flex;
+    width: 42%;
+}
+
 .main__features {
     display: flex;
     justify-content: center;
@@ -176,6 +191,7 @@ a {
     font-family: Roboto-Bold;
     font-size: 40px;
     color: #172755;
+    text-align: center;
 }
 
 .text__main__features {
@@ -216,21 +232,27 @@ a {
 }
 
 .items__box {
-    display: grid;
+    display: flex;
     margin-top: 130px;
     gap: 120px;
+    flex-direction: column;
 }
 
-.item__widget__box {
+.item__widget__box,
+.item__customize__box,
+.item__dashboard__box {
     display: flex;
     align-items: center;
     gap: 100px;
 }
 
-.left__item__widget__box {
+.left__item__widget__box,
+.right__item__customize__box,
+.left__item__dashboard__box {
     display: flex;
     flex-direction: column;
-    width: 480px;
+    max-width: 480px;
+    width: 50%;
 }
 
 .head__left__item__widget__box {
@@ -246,9 +268,12 @@ a {
     color: #8794BA;
 }
 
-.right__item__widget__box {
-    height: 410px;
-    border-width: 600px;
+.right__item__widget__box,
+.left__item__customize__box,
+.right__item__dashboard__box {
+    padding: 51px 72px 48px 64px;
+    max-height: 410px;
+    max-width: 600px;
     background-color: #FFFFFF;
     border-radius: 30px;
     box-shadow: 0px 18px 50px rgba(25, 42, 89, 0.2);
@@ -258,36 +283,14 @@ a {
     display: none;
 }
 
-.img__right__item__widget__box {
-    margin: 51px 72px 48px 64px;
-}
-
-.item__customize__box {
-    display: flex;
-    align-items: center;
-    gap: 100px;
-}
-
-.left__item__customize__box {
-    height: 410px;
-    border-width: 600px;
-    background-color: #FFFFFF;
-    border-radius: 30px;
-    box-shadow: 0px 18px 50px rgba(25, 42, 89, 0.2);
-}
-
-.img__left__item__customize__box {
-    margin: 72px 59px 67px 57px;
+.img__right__item__widget__box,
+.img__left__item__customize__box,
+.img__right__item__dashboard__box {
+    width: 100%;
 }
 
 .img__left__item__customize__box__small {
     display: none;
-}
-
-.right__item__customize__box {
-    display: flex;
-    flex-direction: column;
-    width: 480px;
 }
 
 .head__left__item__customize__box {
@@ -303,18 +306,6 @@ a {
     color: #8794BA;
 }
 
-.item__dashboard__box {
-    display: flex;
-    align-items: center;
-    gap: 100px;
-}
-
-.left__item__dashboard__box {
-    display: flex;
-    flex-direction: column;
-    width: 480px;
-}
-
 .head__left__item__dashboard__box {
     margin-bottom: 30px;
     font-family: Roboto-Bold;
@@ -328,17 +319,6 @@ a {
     color: #8794BA;
 }
 
-.right__item__dashboard__box {
-    height: 410px;
-    border-width: 600px;
-    background-color: #FFFFFF;
-    border-radius: 30px;
-    box-shadow: 0px 18px 50px rgba(25, 42, 89, 0.2);
-}
-
-.img__right__item__dashboard__box {
-    margin: 57px 68px 48px 70px;
-}
 
 .img__right__item__dashboard__box__small {
     display: none;
@@ -347,11 +327,13 @@ a {
 .pricing__content {
     display: flex;
     margin-top: 114px;
+    position: relative;
+    justify-content: center;
 }
 
 .img__pricing__content {
     width: 100%;
-    min-width: 1600px;
+    height: 100%;
     position: absolute;
     left: 0;
     z-index: -1;
@@ -363,16 +345,19 @@ a {
 
 .pricing__plans {
     padding-top: 272px;
+    padding-bottom: 158px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 .head__pricing__plans {
     font-family: Roboto-Bold;
     font-size: 40px;
     color: #FFFFFF;
+    text-align: center;
 }
 
 .text__pricing__plans {
@@ -384,9 +369,11 @@ a {
 }
 
 .pricing__plans__box {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     margin-top: 80px;
     gap: 80px;
+    width: 100%;
 }
 
 .img__right__standart,
@@ -402,7 +389,6 @@ a {
     flex-direction: column;
     align-items: center;
     height: 440px;
-    width: 340px;
     border-radius: 30px;
 }
 
@@ -491,12 +477,14 @@ a {
     border: none;
 }
 
+
 .personal__box {
-    margin-top: 267px;
+    margin-top: 109px;
     padding-left: calc(50% - 481px);
     padding-right: calc(50% - 481px);
     display: flex;
     gap: 46px;
+    justify-content: center;
 }
 
 .head__left__personal__box {
@@ -635,10 +623,7 @@ a {
 }
 
 .footer__bottom {
-    display: flex;
     margin-top: 109px;
-    align-items: center;
-    justify-content: center;
 }
 
 .img__footer__bottom {
@@ -655,6 +640,8 @@ a {
 .footer__bottom__conteiner {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding-top: 3.5%;
 }
 
 .footer__bottom__left {
@@ -667,8 +654,6 @@ a {
     display: flex;
     align-items: center;
     gap: 36px;
-    margin-left: 305px;
-    margin-right: 308px;
     font-family: Roboto-Regular;
     font-size: 14px;
     color: #8794BA;

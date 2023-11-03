@@ -21,7 +21,7 @@ function checkPasswords() {
 retypePasswordInput.addEventListener('input', checkPasswords);
 
 
-conststars = document.querySelectorAll('.rating input');
+const stars = document.querySelectorAll('.rating input[type="radio"]');
 
 stars.forEach(function (star, index) {
     star.addEventListener('click', function () {
@@ -30,7 +30,7 @@ stars.forEach(function (star, index) {
 });
 
 
-const currentRating = 0;
+let currentRating = 0;
 
 function changeRating(rating) {
     if (rating === currentRating) {
